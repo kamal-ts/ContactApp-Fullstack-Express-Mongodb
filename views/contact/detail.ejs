@@ -1,0 +1,54 @@
+<div class="mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Detail Contact</h3>
+            <% if (!contact) { %>
+                <div class="alert alert-danger fw-bold" role="alert">
+                    Contact data not found. <br>
+                    <a href="/contact" class="alert-link fw-normal">&laquo; back to contact list</a>
+                </div>
+            <% }else{ %>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= contact.name %>
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <%= contact.noHP %>
+                        </h6>
+                        <p class="card-text">
+                            <%= contact.email %>
+                        </p>
+
+                        <a href="/contact/edit/<%= contact.name %> " class="btn btn-info badge">Edit</a>
+                        <a href="" class="btn btn-danger badge" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Hapus</a>
+                        <a href="/contact" class="card-link d-block mt-3">&laquo; back to contact list</a>
+                    </div>
+                </div>
+                <!-- Modal delete -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Hapus Contact</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Yakin ingin menghapus?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <a href="/contact/delete/<%= contact._id %> " type="button"
+                                    class="btn btn-danger">Oke</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>

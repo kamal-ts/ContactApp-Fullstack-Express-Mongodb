@@ -1,0 +1,44 @@
+
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Daftar Contac</h2>
+        <a href="/contact/add" class="btn btn-primary mt-3 ">Tambah Data Contacts</a>
+        <table class="table mt-3">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">No. HP</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (contacts.length < 1) { %>
+              <tr>
+                <td colspan="4">
+                  <div class="alert alert-danger" role="alert">
+                    Contacts not found
+                  </div>
+                </td>
+              </tr>
+              
+            
+            <% } else { %>
+              <% contacts.forEach((contact, index) => { %>
+                <tr>
+                  <th scope="row"><%= index+1 %> </th>
+                  <td><%= contact.name %></td>
+                  <td><%= contact.noHP %></td>
+                  <td>
+                    
+                    <a href="/contact/<%= contact.name %> " class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> detail</a>
+                  </td>
+                </tr>
+              <% }) %>
+            <% } %>
+            
+            
+          </tbody>
+        </table>
+      </div>
+    </div>

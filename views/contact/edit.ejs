@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-6">
+        <h2>Form tambah data contact</h2>
+        <form method="post" action="/contact/update">
+            <input type="text" name="_id" value="<%= body ? body._id : contact._id %>">
+            <input type="text" name="oldName" value="<%= body ? body.oldName : contact.name %>">
+            <div class="mb-3 mt-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control <%= pesanErr.nameErr ? 'is-invalid' : '' %>" id="name"
+                    name="name" placeholder="enter your contact name" value="<%= body? body.name : contact.name %>" required>
+                <div class="invalid-feedback">
+                    <%= pesanErr.nameErr ? pesanErr.nameErr.msg : '' %>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control <%= pesanErr.emailErr ? 'is-invalid' : '' %>" id="email"
+                    name="email" placeholder="enter your email" value="<%= body? body.email : contact.email %>" required>
+                <div class="invalid-feedback">
+                    <%= pesanErr.emailErr ? pesanErr.emailErr.msg : '' %>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="noHP" class="form-label">Nomor HP</label>
+                <input type="text" class="form-control <%= pesanErr.noHPErr ? 'is-invalid' : '' %>" id="noHP"
+                    name="noHP" placeholder="enter your phone number " value="<%= body? body.noHP : contact.noHP %>" required>
+                <div class="invalid-feedback">
+                    <%= pesanErr.noHPErr ? pesanErr.noHPErr.msg : '' %>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Ubah Data Contact</button>
+                <a href="/contact" class=" btn btn-danger">Cancel</a>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
